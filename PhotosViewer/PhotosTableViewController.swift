@@ -10,8 +10,33 @@ import UIKit
 
 class PhotosTableViewController: UITableViewController {
   
+  var photosApiHandler: PhotosAPIHandler?
+  var photosDataSource: PhotoDataSource?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    photosApiHandler = PhotosAPIHandler()
+    reloadData()
+  }
+  
+  func reloadData() {
+    photosApiHandler?.fetchData() { [weak self] result in
+      switch result {
+      case .success(let dataSource):
+        self?.photosDataSource = dataSource
+        self?.refresh()
+      case .failure(let error):
+        self?.handleAPIError(error)
+      }
+    }
+  }
+  
+  func refresh() {
+    self.title = self.photosDataSource?.title
+    self.tableView.reloadData()
+  }
+  
+  func handleAPIError(_ error: Error) {
     
   }
   
