@@ -53,8 +53,21 @@ class PhotosTableViewController: UITableViewController {
   }
   
   func handleAPIError(_ error: Error) {
-    // For now just print the error
-    print("Failed reloading the data source \(error)")
+
+    var message = "There was a problem. Please try again later."
+    switch error {
+    case APIError.apiError(let error):
+      message = error.localizedDescription
+    case APIError.jsonError(let error):
+      message = error.localizedDescription
+    default:
+      break
+    }
+    let alert = UIAlertController(title: "Failed loading data", message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+    self.present(alert, animated: true, completion: {
+      self.tableView.refreshControl?.endRefreshing()
+    })
   }
   
   // MARK: - Table view data source
