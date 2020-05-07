@@ -15,6 +15,7 @@ enum APIError: Error {
   case jsonError(error: Error)
 }
 
+/// Class used for handling the API call for fetchingh a new list of photos
 class PhotosAPIHandler {
   
   let urlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"

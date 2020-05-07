@@ -92,7 +92,6 @@ class PhotoInfoCell: UITableViewCell {
     allConstraints += photoHorizontalConstraints
     
     NSLayoutConstraint.activate(allConstraints)
-    self.invalidateIntrinsicContentSize()
   }
   
   required init?(coder: NSCoder) {
@@ -120,7 +119,6 @@ class PhotoInfoCell: UITableViewCell {
     
     titleLabel.text = data.title
     descriptionLabel.text = data.description
-    self.invalidateIntrinsicContentSize()
   }
 
 }

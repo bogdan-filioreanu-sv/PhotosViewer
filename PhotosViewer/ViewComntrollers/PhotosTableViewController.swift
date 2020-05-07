@@ -8,9 +8,12 @@
 
 import UIKit
 
+/// Main content controller containing the photos list organized as a table view
 class PhotosTableViewController: UITableViewController {
   
+  // The API handler class used for fetching data
   var photosApiHandler: PhotosAPIHandler?
+  // The data source used for the table view
   var photosDataSource: PhotoDataSource?
   
   override func viewDidLoad() {
@@ -80,14 +83,6 @@ class PhotosTableViewController: UITableViewController {
     return photosDataSource?.validRows().count ?? 0
   }
   
-  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
-  }
-
-  override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-      return 100
-  }
-  
   override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     // Disable having separators even if no cells are loaded
     return UIView()
@@ -95,11 +90,9 @@ class PhotosTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: PhotoInfoCell.reuseIdentifier, for: indexPath) as? PhotoInfoCell ?? PhotoInfoCell()
-    
     if let rowData = self.photosDataSource?.validRows()[indexPath.row] {
       cell.setup(data: rowData)
     }
-    
     return cell
   }
 }
