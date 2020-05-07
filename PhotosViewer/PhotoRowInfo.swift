@@ -12,5 +12,5 @@ class PhotoRowInfo: Codable {
   
   let title: String?
   let description: String?
-  let imageRef: String?
+  let imageHref: String?
 }

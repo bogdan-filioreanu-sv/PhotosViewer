@@ -10,5 +10,11 @@ import Foundation
 
 class PhotoDataSource: Codable {
   let title: String?
-  let rows: [PhotoRowInfo]?
+  private let rows: [PhotoRowInfo]?
+  
+  func validRows() -> [PhotoRowInfo] {
+    return rows?.compactMap({ (rowInfo) -> PhotoRowInfo? in
+      (rowInfo.description != nil || rowInfo.title != nil || rowInfo.imageHref != nil) ? rowInfo : nil
+    }) ?? []
+  }
 }
