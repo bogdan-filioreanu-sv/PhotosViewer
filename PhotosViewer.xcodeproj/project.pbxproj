@@ -120,16 +120,14 @@
 		877AB5512463DE6C00B5AAC3 /* PhotosViewer */ = {
 			isa = PBXGroup;
 			children = (
-				877AB5522463DE6C00B5AAC3 /* AppDelegate.swift */,
-				877AB5542463DE6C00B5AAC3 /* SceneDelegate.swift */,
+				879769CC2464A05C0086AD4F /* AppDelegates */,
 				877AB55B2463DE6D00B5AAC3 /* Assets.xcassets */,
 				877AB55D2463DE6D00B5AAC3 /* LaunchScreen.storyboard */,
 				877AB5602463DE6D00B5AAC3 /* Info.plist */,
-				877AB58E2464094600B5AAC3 /* PhotoInfoCell.swift */,
-				877AB5822463E0F600B5AAC3 /* PhotosTableViewController.swift */,
-				877AB5882463EB3C00B5AAC3 /* PhotosAPIHandler.swift */,
-				877AB58A2463F4C700B5AAC3 /* PhotoRowInfo.swift */,
-				877AB58C2463FB0000B5AAC3 /* PhotoDataSource.swift */,
+				879769CA2464A00D0086AD4F /* Views */,
+				879769C92464A0000086AD4F /* ViewComntrollers */,
+				879769CB2464A0370086AD4F /* Handlers */,
+				879769C824649FCC0086AD4F /* Models */,
 			);
 			path = PhotosViewer;
 			sourceTree = "<group>";
@@ -150,6 +148,48 @@
 				877AB5762463DE6D00B5AAC3 /* Info.plist */,
 			);
 			path = PhotosViewerUITests;
+			sourceTree = "<group>";
+		};
+		879769C824649FCC0086AD4F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				877AB58A2463F4C700B5AAC3 /* PhotoRowInfo.swift */,
+				877AB58C2463FB0000B5AAC3 /* PhotoDataSource.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		879769C92464A0000086AD4F /* ViewComntrollers */ = {
+			isa = PBXGroup;
+			children = (
+				877AB5822463E0F600B5AAC3 /* PhotosTableViewController.swift */,
+			);
+			path = ViewComntrollers;
+			sourceTree = "<group>";
+		};
+		879769CA2464A00D0086AD4F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				877AB58E2464094600B5AAC3 /* PhotoInfoCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		879769CB2464A0370086AD4F /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				877AB5882463EB3C00B5AAC3 /* PhotosAPIHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		879769CC2464A05C0086AD4F /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				877AB5522463DE6C00B5AAC3 /* AppDelegate.swift */,
+				877AB5542463DE6C00B5AAC3 /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
 			sourceTree = "<group>";
 		};
 		F562EE0042AB60ADF6209873 /* Pods */ = {
@@ -547,7 +587,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PhotosViewerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +608,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PhotosViewerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
