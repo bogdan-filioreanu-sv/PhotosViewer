@@ -12,6 +12,7 @@ enum APIError: Error {
   case invalidURL
   case unknown
   case apiError(error: Error)
+  case jsonError(error: Error)
 }
 
 class PhotosAPIHandler {
@@ -42,10 +43,12 @@ class PhotosAPIHandler {
         finalError = .apiError(error: error)
       } else if let data = data,
         let utf8Data = String(decoding: data, as: UTF8.self).data(using: .utf8) {
-        
-        let jsonData = try? JSON(data: utf8Data,options: .allowFragments)
-        if let jsonData = try? jsonData?.rawData(), let dataSource = try? JSONDecoder().decode(PhotoDataSource.self, from: jsonData) {
-          finalDataSource = dataSource
+        do {
+          let jsonData = try JSON(data: utf8Data,options: .allowFragments)
+          let rawData = try jsonData.rawData()
+          finalDataSource = try JSONDecoder().decode(PhotoDataSource.self, from: rawData)
+        } catch {
+          finalError = .jsonError(error: error)
         }
       } else {
         finalError = .unknown
